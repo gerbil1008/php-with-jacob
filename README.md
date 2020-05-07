@@ -3,15 +3,15 @@
 ## Person
 |id      |first_name |last_name    |birth_date       |
 |:----   |:----------|:------------|:----------------|
-|1       |Glen       |Gerber       |1968-10-08       |
-|2       |Jacob      |Gerber       |1996-02-03       |
+|1       |Glen       |Gershner     |1948-09-08       |
+|2       |Jacob      |Graber       |1993-02-23       |
 
 ## Event
 |eventId |evenTypeId |occuredOn    |
 |:----   |:----------|:------------|
-|1       |1          |1968-10-08   |
-|2       |1          |1996-02-03   |
-|3       |2          |1990-11-17   |
+|1       |1          |1948-09-08   |
+|2       |1          |1993-02-23   |
+|3       |2          |1990-09-17   |
 
 
 ## EventType
@@ -22,8 +22,8 @@
 |3           |HG        |Highschool Graduation |
 
 ## PersonEvents
-|personId |eventId   |details                      |
-|:----    |:---------|:------------                |
-|1        |1         |Born in Whittier, California |
-|1        |3         |Salt Lake City Temple        |
+|personId |eventId   |details                         |
+|:----    |:---------|:------------                   |
+|1        |1         |Born in Los Angelos, California |
+|1        |3         |Palm Springs California         |
 
