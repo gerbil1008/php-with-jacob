@@ -1,0 +1,57 @@
+@startuml
+!include functions.iuml
+skinparam linetype ortho
+hide empty members
+hide circle
+legend top left
+Type : Entity Relationship Diagram
+Name : PHP With Jacob Entities
+Author : Glen Gerber
+Creation Date : Wednesday, February 19, 2020
+endlegend
+package "MySQL" <<database>> {
+	table("Person") {
+		*primaryKey("personId", "int")
+		--
+		column("firstName", "varchar_30")
+		column("lastName", "varchar_30")
+		column("birthDate", "date")
+	}
+	table("Event") {
+		*primaryKey("eventId", "int")
+		--
+		*foreignKey("eventTypeId", "int")
+		*column("occuredOn", "date")
+	}
+	table("EventType") {
+		*primaryKey("eventTypeId", "int")
+		--
+		column("shortCode", "varchar_3")
+		column("description", "varchar_50")
+	}
+	note left of EventType
+	  Birthday, Marriage,
+	  Graduation, etc.
+	end note
+	table("PersonEvents") {
+		*primaryAndForeignKey("personId", "int")
+		*primaryAndForeignKey("eventId", "int")
+		--
+		column("details", "varchar_max")
+	}
+	table("PersonRelationships") {
+      
+	}
+	table("RelationshipType") {
+
+	}
+	note right of RelationshipType
+	  Father, Mother, Brother, Sister
+	end note
+}
+Event ||--|| EventType : fk_et_eventTypeId
+Person }o..o{ PersonEvents : fk_p_personId
+PersonEvents }o..o| Event : fk_e_eventId
+PersonRelationships }|--|| RelationshipType : fk_pr_relationshipTypeId
+Person ||--|{ PersonRelationships : fk_p_personId
+@enduml

@@ -1,0 +1,23 @@
+!function table($tableName)
+!return "entity " + $tableName
+!endfunction
+
+!function primaryKey($keyName,$dataType)
+!return $keyName + " : " + $dataType + " <<PK>>"
+!endfunction
+
+!function generated($keyName,$dataType)
+!return $keyName + " : " + $dataType + " <<PK generated>>"
+!endfunction
+
+!function foreignKey($keyName,$dataType)
+!return $keyName + " : " + $dataType + " <<FK>>"
+!endfunction
+
+!function column($columnName,$dataType)
+!return $columnName + " : " + $dataType
+!endfunction
+
+!function primaryAndForeignKey($keyName,$dataType)
+!return $keyName + " : " + $dataType + " <<PK,FK>>"
+!endfunction
