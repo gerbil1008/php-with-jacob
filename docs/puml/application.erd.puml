@@ -56,7 +56,7 @@ package "test" <<database>> {
 		column("description", "varchar_30")
 	}
 	note right of RelationshipType
-	  Father, Mother, Brother, Sister
+	  Father, Mother
 	end note
 }
 }
