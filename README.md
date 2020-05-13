@@ -6,7 +6,7 @@
 |id      |first_name |last_name    |birth_date       |
 |:----   |:----------|:------------|:----------------|
 |1       |Glen       |Gershner     |1948-09-08       |
-|2       |Jacob      |Graber       |1993-02-23       |
+|2       |Jacob      |Gershner     |1973-02-23       |
 
 *Table 1 - Sample Person Data*
 
@@ -47,7 +47,7 @@
 ## PersonRelationships
 |personId |relationshipTypeId |relatedPersonId   | details                      |
 |:----    |:-------           |:---------        |:-----------                  |
-|1        |7                  |2                 |Good friend                   |
+|1        |1                  |2                 |Good friend                   |
 
 *Table 5 - Sample PersonRelationships Data*
 
@@ -58,13 +58,6 @@
 |:------            |:------    |:--------                                      |
 |1                  |DAD        |Father                                         |
 |2                  |MOM        |Mother                                         |
-|3                  |BRO        |Brother                                        |
-|4                  |SIS        |Sister                                         |
-|5                  |SON        |Son											|
-|6                  |DTR		|Daughter                                       |
-|7                  |CSN        |Cousin                                         |
-|8                  |NPW        |Nephew											|
-|9                  |NCE        |Niece                                          |
 
 *Table 6 - Sample RelationshipType Data*
 
