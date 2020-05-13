@@ -17,6 +17,7 @@ package "test" <<database>> {
 		*column("firstName", "varchar_30")
 		column("middleName", "varchar_30")
 		column("lastName", "varchar_30")
+		column("gender", "varchar_1")
 		column("birthDate", "timestamp")
 	}
 	table("Event") {
