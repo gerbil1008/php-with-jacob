@@ -1,10 +1,15 @@
 ![Database Model](./docs/img/application.erd.png)
 
 ## Person
+
+#### Sample Data
 |id      |first_name |last_name    |birth_date       |
 |:----   |:----------|:------------|:----------------|
 |1       |Glen       |Gershner     |1948-09-08       |
 |2       |Jacob      |Graber       |1993-02-23       |
+*Table 1 - Sample Person Data*
+
+[Creation Script for Person Table](./src/sql/Tables/Person.sql)
 
 ## Event
 |eventId |evenTypeId |occuredOn    |

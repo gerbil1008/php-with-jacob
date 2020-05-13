@@ -13,9 +13,9 @@ package "MySQL" <<database>> {
 	table("Person") {
 		*primaryKey("personId", "int")
 		--
-		column("firstName", "varchar_30")
+		*column("firstName", "varchar_30")
 		column("lastName", "varchar_30")
-		column("birthDate", "date")
+		*column("birthDate", "timestamp")
 	}
 	table("Event") {
 		*primaryKey("eventId", "int")
