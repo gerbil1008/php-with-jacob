@@ -14,8 +14,9 @@ package "MySQL" <<database>> {
 		*primaryKey("personId", "int")
 		--
 		*column("firstName", "varchar_30")
+		column("middleName", "varchar_30")
 		column("lastName", "varchar_30")
-		*column("birthDate", "timestamp")
+		column("birthDate", "timestamp")
 	}
 	table("Event") {
 		*primaryKey("eventId", "int")
@@ -43,15 +44,17 @@ package "MySQL" <<database>> {
       
 	}
 	table("RelationshipType") {
-
+		primaryKey("relationshipTypeId", "int")
+		--
+		column("description", "varchar_30")
 	}
 	note right of RelationshipType
 	  Father, Mother, Brother, Sister
 	end note
 }
 Event ||--|| EventType : fk_et_eventTypeId
-Person }o..o{ PersonEvents : fk_p_personId
-PersonEvents }o..o| Event : fk_e_eventId
+Person ||..o{ PersonEvents : fk_p_personId
+PersonEvents }o..|| Event : fk_e_eventId
 PersonRelationships }|--|| RelationshipType : fk_pr_relationshipTypeId
 Person ||--|{ PersonRelationships : fk_p_personId
 @enduml
