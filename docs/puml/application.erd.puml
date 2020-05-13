@@ -11,7 +11,7 @@ Creation Date : Wednesday, February 19, 2020
 endlegend
 package "MySQL" <<database>> {
 	table("Person") {
-		*primaryKey("personId", "int")
+		*primaryKey("personId", "bigint")
 		--
 		*column("firstName", "varchar_30")
 		column("middleName", "varchar_30")
@@ -19,13 +19,13 @@ package "MySQL" <<database>> {
 		column("birthDate", "timestamp")
 	}
 	table("Event") {
-		*primaryKey("eventId", "int")
+		*primaryKey("eventId", "bigint")
 		--
-		*foreignKey("eventTypeId", "int")
+		*foreignKey("eventTypeId", "bigint")
 		*column("occuredOn", "date")
 	}
 	table("EventType") {
-		*primaryKey("eventTypeId", "int")
+		*primaryKey("eventTypeId", "bigint")
 		--
 		column("shortCode", "varchar_3")
 		column("description", "varchar_50")
@@ -35,26 +35,32 @@ package "MySQL" <<database>> {
 	  Graduation, etc.
 	end note
 	table("PersonEvents") {
-		*primaryAndForeignKey("personId", "int")
-		*primaryAndForeignKey("eventId", "int")
+		*primaryAndForeignKey("personId", "bigint")
+		*primaryAndForeignKey("eventId", "bigint")
 		--
 		column("details", "varchar_max")
 	}
 	table("PersonRelationships") {
-      
+		*primaryAndForeignKey("personId", "bigint")
+		*primaryAndForeignKey("relationshipTypeId", "bigint")
+		*primaryAndForeignKey("relatedPersonId", "bigint")
+		--
+		column("details", "varchar_max")
 	}
 	table("RelationshipType") {
-		primaryKey("relationshipTypeId", "int")
+		primaryKey("relationshipTypeId", "bigint")
 		--
+		column("shortCode", "varchar_3")
 		column("description", "varchar_30")
 	}
 	note right of RelationshipType
 	  Father, Mother, Brother, Sister
 	end note
 }
-Event ||--|| EventType : fk_et_eventTypeId
-Person ||..o{ PersonEvents : fk_p_personId
-PersonEvents }o..|| Event : fk_e_eventId
-PersonRelationships }|--|| RelationshipType : fk_pr_relationshipTypeId
-Person ||--|{ PersonRelationships : fk_p_personId
+Event ||--|| EventType : fk_e_et_eventTypeId
+Person ||..o{ PersonEvents : fk_pe_p_personId
+PersonEvents }o..|| Event : fk_pe_e_eventId
+PersonRelationships }|--|| RelationshipType : fk_pr_rt_relationshipTypeId
+Person ||--|{ PersonRelationships : fk_pr_p_personId
+Person ||--|{ PersonRelationships : fk_pr_p_relatedPersonId
 @enduml
