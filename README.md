@@ -47,7 +47,7 @@
 ## PersonRelationships
 |personId |relationshipTypeId |relatedPersonId   | details                      |
 |:----    |:-------           |:---------        |:-----------                  |
-|1        |5                  |2                 |Good friend                   |
+|1        |7                  |2                 |Good friend                   |
 
 *Table 5 - Sample PersonRelationships Data*
 
