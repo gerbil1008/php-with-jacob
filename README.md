@@ -7,6 +7,7 @@
 |:----   |:----------|:------------|:----------------|
 |1       |Glen       |Gershner     |1948-09-08       |
 |2       |Jacob      |Graber       |1993-02-23       |
+
 *Table 1 - Sample Person Data*
 
 [Creation Script for Person Table](./src/sql/Tables/Person.sql)
