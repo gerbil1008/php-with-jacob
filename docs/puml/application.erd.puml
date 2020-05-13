@@ -9,7 +9,8 @@ Name : PHP With Jacob Entities
 Author : Glen Gerber
 Creation Date : Wednesday, February 19, 2020
 endlegend
-package "MySQL" <<database>> {
+package "MySQL server" <<rectangle>> {
+package "test" <<database>> {
 	table("Person") {
 		*primaryKey("personId", "bigint")
 		--
@@ -56,6 +57,7 @@ package "MySQL" <<database>> {
 	note right of RelationshipType
 	  Father, Mother, Brother, Sister
 	end note
+}
 }
 Event ||--|| EventType : fk_e_et_eventTypeId
 Person ||..o{ PersonEvents : fk_pe_p_personId
