@@ -4,7 +4,7 @@ skinparam linetype ortho
 hide empty members
 hide circle
 legend top left
-Type : Entity Relationship Diagram
+Type : Entity Relationship Diagram (Bible Genealogy)
 Name : PHP With Jacob Entities
 Author : Glen Gerber
 Creation Date : Wednesday, February 19, 2020
@@ -17,6 +17,9 @@ package "test" <<database>> {
 		*column("firstName", "varchar_30")
 		column("middleName", "varchar_30")
 		column("lastName", "varchar_30")
+		column("title", "varchar_50")
+		column("alias", "varchar_30")
+		column("totalAge", "int")
 		column("gender", "varchar_1")
 		column("birthDate", "timestamp")
 	}
@@ -34,7 +37,7 @@ package "test" <<database>> {
 	}
 	note left of EventType
 	  Birthday, Marriage,
-	  Graduation, etc.
+	  Death, etc.
 	end note
 	table("PersonEvents") {
 		*primaryAndForeignKey("personId", "bigint")
