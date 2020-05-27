@@ -13,3 +13,10 @@ CREATE OR REPLACE TABLE Person (
 
 /* ALTER TABLE Person ADD COLUMN () */
 
+INSERT INTO Person (firstName, gender)
+VALUES ('Adam', 'M');
+
+INSERT INTO Person (firstName, gender)
+VALUES ('Eve', 'F');
+
+
