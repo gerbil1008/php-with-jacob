@@ -1,0 +1,42 @@
+@startuml
+!include functions.iuml
+hide empty members
+package "GitHub" <<cloud>> #SkyBlue {
+	package "php-with-jacob" <<rectangle>> #PowderBlue {
+		package "src/sql/Tables" {
+			file "Event.sql" {
+			}
+			file "EventType.sql" {
+			}
+		}
+		package "docs" {
+			package "img" {
+				file "application.erd.png" {
+				}
+			}
+			package "puml" {
+				file "application.erd.puml" {
+				}
+			}
+		}
+		file "CHANGELOG.md" {
+		}
+		file "CONTRIBUTING.md" {
+		}
+	}
+}
+package "Developer Computer" <<node>> {
+	package "index" {
+
+	}
+	package "stage" {
+
+	}
+	package "workspace" {
+
+	}
+}
+"index" "\ngit pull,\ngit checkout\nor git clone" <--> "git push \n\n\n\n\n\n\n\n\n" "php-with-jacob"
+"stage" --> "git commit" "index"
+"workspace"--> "git add"  "stage"
+@enduml
