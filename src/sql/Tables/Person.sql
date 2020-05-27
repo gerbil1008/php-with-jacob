@@ -12,3 +12,4 @@ CREATE OR REPLACE TABLE Person (
 )
 
 /* ALTER TABLE Person ADD COLUMN () */
+
