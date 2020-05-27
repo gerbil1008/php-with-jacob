@@ -26,16 +26,10 @@ package "test" <<database>> {
 	table("Event") {
 		*primaryKey("eventId", "bigint")
 		--
-		*foreignKey("eventTypeId", "bigint")
-		*column("occuredOn", "date")
-	}
-	table("EventType") {
-		*primaryKey("eventTypeId", "bigint")
-		--
 		column("shortCode", "varchar_3")
 		column("description", "varchar_50")
 	}
-	note left of EventType
+	note bottom of Event
 	  Birthday, Marriage,
 	  Death, etc.
 	end note
@@ -43,7 +37,16 @@ package "test" <<database>> {
 		*primaryAndForeignKey("personId", "bigint")
 		*primaryAndForeignKey("eventId", "bigint")
 		--
-		column("details", "varchar_max")
+		*column("occuredOn", "date")
+		*foreignKey("scriptureReferenceId", "bigint")
+	}
+	table("ScriptureReference") {
+		*primaryKey("scriptureReferenceId", "bigint")
+		--
+		*column("volume", "varchar_50")
+		*column("book", "varchar_30")
+		*column("chapter", "int")
+		*column("verse", "varchar_20")
 	}
 	table("PersonRelationships") {
 		*primaryAndForeignKey("personId", "bigint")
@@ -63,8 +66,8 @@ package "test" <<database>> {
 	end note
 }
 }
-Event ||--|| EventType : fk_e_et_eventTypeId
 Person ||..o{ PersonEvents : fk_pe_p_personId
+PersonEvents }|..|| ScriptureReference : fk_pe_sr_scriptureReferenceId
 PersonEvents }o..|| Event : fk_pe_e_eventId
 PersonRelationships }|--|| RelationshipType : fk_pr_rt_relationshipTypeId
 Person ||--|{ PersonRelationships : fk_pr_p_personId
